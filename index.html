@@ -19,6 +19,17 @@
         <div class="bg">
         </div>
     </header>
+
+    <div  class="position-absolute top-50 start-100 translate-middle">
+        <div class="colors">
+            <span id="1" onclick="changeColor('#000000','1')" class="color" style="--clr:#000000;"></span>
+            <span id="2" onclick="changeColor('#643843','2')" class="color" style="--clr:#643843;"></span>
+            <span id="3" onclick="changeColor('#223245','3')" class="color" style="--clr:#223245;"></span>
+            <span id="4" onclick="changeColor('#4D0C02','4')" class="color" style="--clr:#4D0C02;"></span>
+            <span id="5" onclick="changeColor('#4c3d2c','5')" class="color" style="--clr:#4c3d2c;"></span>
+        </div>
+    </div>
+    
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a href="#" class="navbar-brand">
@@ -46,15 +57,6 @@
         </div>
     </nav>
 
-    <div  class="position-absolute top-50 start-100 translate-middle">
-        <div class="colors">
-            <span id="1" onclick="changeColor('#000000','1')" class="color" style="--clr:#000000;"></span>
-            <span id="2" onclick="changeColor('#643843','2')" class="color" style="--clr:#643843;"></span>
-            <span id="3" onclick="changeColor('#223245','3')" class="color" style="--clr:#223245;"></span>
-            <span id="4" onclick="changeColor('#4D0C02','4')" class="color" style="--clr:#4D0C02;"></span>
-            <span id="5" onclick="changeColor('#4c3d2c','5')" class="color" style="--clr:#4c3d2c;"></span>
-        </div>
-    </div>
 
     <h1 class="title"></h1>
     <div class="tabContainer">
@@ -68,7 +70,7 @@
         <div class="tabPanel">
 
             <form class="hotelForm">
-
+                
                 <div class="input-box">
                     <input type="text" id="des">
                     <label class="inputLbl">Destination</label>
@@ -85,7 +87,7 @@
                     <input id="numBox" type="text"></input>
                     <div class="personLbl">
                         <button type="button" class="btn" id="minus" onclick="minusNumber(0)">-</button>
-                        <span class="personNum"><input id="number" value="1" type="number" ></span><span>person</span>
+                        <span class="personNum"><input id="number" value="1" type="number" ><span>person</span></span>
                         <button type="button" id="plus" class="btn" onclick="plusNumber(0)">+</button>
                     </div>
 
@@ -116,7 +118,7 @@
                     <input id="numBox" type="text">
                     <div class="personLbl">
                         <button type="button" class="btn" id="minus" onclick="minusNumber(1)">-</button>
-                        <span class="personNum"><input id="number" value="1" type="number"></span><span>person</span>
+                        <span class="personNum"><input id="number" value="1" type="number"><span>person</span></span>
                         <button type="button" id="plus" class="btn" onclick="plusNumber(1)">+</button>
                     </div>
 
@@ -146,7 +148,7 @@
                     <input id="numBox" type="text">
                     <div class="personLbl">
                         <button type="button" class="btn" id="minus" onclick="minusNumber(2)">-</button>
-                        <span class="personNum"><input id="number" value="1" type="number"></span><span>person</span>
+                        <span class="personNum"><input id="number" value="1" type="number"><span>person</span></span>
                         <button type="button" id="plus" class="btn" onclick="plusNumber(2)">+</button>
                     </div>
 
