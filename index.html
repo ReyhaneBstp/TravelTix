@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TravelTix</title>
+</head>
+<body>
+    <link rel="icon" type="image/png"  href=icon/travel.png>
+
+    <header>
+        <div class="bg">
+        </div>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+
+                <div id="brandBox">
+                    <img src="icon/travel.png" alt="Brand logo" id="brand">
+                    <span id="brandTxt">ravelTix</span>
+                </div>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link active">Home</a>
+                    <a href="#pack" class="nav-item nav-link">Tours</a>
+                    <a href="#spo" class="nav-item nav-link">Offers</a>
+                    <a href="#faq" class="nav-item nav-link">FAQ</a>
+                    <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a id="login"  href="login.html" target="_blank">My Account</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div  class="position-absolute top-50 start-100 translate-middle">
+        <div class="colors">
+            <span id="1" onclick="changeColor('#000000','1')" class="color" style="--clr:#000000;"></span>
+            <span id="2" onclick="changeColor('#643843','2')" class="color" style="--clr:#643843;"></span>
+            <span id="3" onclick="changeColor('#223245','3')" class="color" style="--clr:#223245;"></span>
+            <span id="4" onclick="changeColor('#4D0C02','4')" class="color" style="--clr:#4D0C02;"></span>
+            <span id="5" onclick="changeColor('#4c3d2c','5')" class="color" style="--clr:#4c3d2c;"></span>
+        </div>
+    </div>
+
+    <h1 class="title"></h1>
+    <div class="tabContainer">
+        <div class="buttonContainer">
+            <button id="btn1" onclick="showPanel(0)"><i class="fa-solid fa-hotel"></i> Hotel</button><button onclick="showPanel(1)"><i class="fa-solid fa-plane"></i> Flight</button><button onclick="showPanel(2)"><i class="fa-solid fa-train"></i> Train</button>
+        </div>
+
+
+        <div class="curved" id="curved1"></div>
+        <div class="curved" id="curved2"></div>
+        <div class="tabPanel">
+
+            <form class="hotelForm">
+
+                <div class="input-box">
+                    <input type="text" id="des">
+                    <label class="inputLbl">Destination</label>
+                </div>
+                <div class="input-box">
+                    <input id="entry" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <label class="inputLbl">Entry date</label>
+                </div>
+                <div class="input-box">
+                    <input id="exit" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <label class="inputLbl">Exit date</label>
+                </div>
+                <div class="input-box">
+                    <input id="numBox" type="text"></input>
+                    <div class="personLbl">
+                        <button type="button" class="btn" id="minus" onclick="minusNumber(0)">-</button>
+                        <span class="personNum"><input id="number" value="1" type="number" ></span><span>person</span>
+                        <button type="button" id="plus" class="btn" onclick="plusNumber(0)">+</button>
+                    </div>
+
+                </div>
+                <p onclick="showResult(1)" type="submit" class="search">Search <i class="fa-solid fa-magnifying-glass"></i></p>
+
+            </form>
+            
+
+        </div>
+        <div class="tabPanel">
+            
+            <form class="plainForm">
+
+                <div class="input-box">
+                    <input type="text" id="org">
+                    <label class="inputLbl">Origin</label>
+                </div><button type="button" class="arrowBtn"><i class="fa-solid fa-arrows-left-right"></i></button><div class="input-box">
+                    <input type="text" id="des">
+                    <label class="inputLbl">Destination</label>
+                </div><div class="input-box">
+                    <input id="entry" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <label class="inputLbl">Entry date</label>
+                </div><div class="input-box">
+                    <input id="exit" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <label class="inputLbl">Exit date</label>
+                </div><div class="input-box">
+                    <input id="numBox" type="text">
+                    <div class="personLbl">
+                        <button type="button" class="btn" id="minus" onclick="minusNumber(1)">-</button>
+                        <span class="personNum"><input id="number" value="1" type="number"></span><span>person</span>
+                        <button type="button" id="plus" class="btn" onclick="plusNumber(1)">+</button>
+                    </div>
+
+                </div>
+                <p onclick="showResult(2)" type="submit" class="search" style="background-color: rgb(0, 0, 0);">Search <i class="fa-solid fa-magnifying-glass"></i></p>
+
+            </form>
+        
+        </div>
+        <div class="tabPanel">
+
+            <form class="trainForm">
+
+                <div class="input-box">
+                    <input type="text" id="org">
+                    <label class="inputLbl">origin</label>
+                </div><button type="button" class="arrowBtn"><i class="fa-solid fa-arrows-left-right"></i></button><div class="input-box">
+                    <input type="text" id="des">
+                    <label class="inputLbl">Destination</label>
+                </div><div class="input-box">
+                    <input id="entry" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <label class="inputLbl">Entry date</label>
+                </div><div class="input-box">
+                    <input id="exit" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <label class="inputLbl">Exit date</label>
+                </div><div class="input-box">
+                    <input id="numBox" type="text">
+                    <div class="personLbl">
+                        <button type="button" class="btn" id="minus" onclick="minusNumber(2)">-</button>
+                        <span class="personNum"><input id="number" value="1" type="number"></span><span>person</span>
+                        <button type="button" id="plus" class="btn" onclick="plusNumber(2)">+</button>
+                    </div>
+
+                </div>
+                <p  onclick="showResult(3)"  class="search" style="background-color: rgb(0, 0, 0);">Search <i class="fa-solid fa-magnifying-glass"></i></p>
+
+            </form>
+
+        
+        </div>
+
+    </div>
+
+    <section class="resTable">
+        <!--Table-->
+        <table id="table1" class="table table-hover table-fixed">
+
+            <!--Table head-->
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Hotel Name</th>
+                <th>price</th>
+                <th></th>
+            </tr>
+            </thead>
+            <!--Table head-->
+        
+            <!--Table body-->
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Lake Place</td>
+                <td>100$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Holly House</td>
+                <td>110$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Time Motel</td>
+                <td>90$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Four Seasons</td>
+                <td>130$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>Sunset Lodge</td>
+                <td>95$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+            
+            </tbody>
+            <!--Table body-->
+        
+        </table>
+        <!--Table-->
+
+
+
+        <table id="table2" class="table table-hover table-fixed">
+
+            <!--Table head-->
+            <thead>
+            <tr>
+                <th>number</th>
+                <th>Airline</th>
+                <th>time</th>
+                <th>price</th>
+                <th></th>
+            </tr>
+            </thead>
+            <!--Table head-->
+        
+            <!--Table body-->
+            <tbody>
+            <tr>
+                <th scope="row">1229</th>
+                <td>Homa</td>
+                <td>12:20</td>
+                <td>100$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+            <tr>
+                <th scope="row">122</th>
+                <td>Kish Air</td>
+                <td>15:50</td>
+                <td>100$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+            <tr>
+                <th scope="row">303</th>
+                <td>Sky Air</td>
+                <td>20:20</td>
+                <td>90$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+           
+            
+            </tbody>
+            <!--Table body-->
+        
+        </table>
+
+        <table id="table3" class="table table-hover table-fixed">
+
+            <!--Table head-->
+            <thead>
+            <tr>
+                <th>type</th>
+                <th>Company</th>
+                <th>time</th>
+                <th>price</th>
+                <th></th>
+            </tr>
+            </thead>
+            <!--Table head-->
+        
+            <!--Table body-->
+            <tbody>
+            <tr>
+                <th scope="row">4 beds</th>
+                <td>Amtrack</td>
+                <td>12:20</td>
+                <td>100$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+            <tr>
+                <th scope="row">2 beds</th>
+                <td>ScotRail</td>
+                <td>15:50</td>
+                <td>100$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+            <tr>
+                <th scope="row">6 beds</th>
+                <td>Saba</td>
+                <td>20:20</td>
+                <td>90$</td>
+                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+            </tr>
+           
+            
+            </tbody>
+            <!--Table body-->
+        
+        </table>
+    </section>
+    
+
+    <!--/.packages-->
+    <section id="pack"  class="packages">
+        <div class="container">
+            <div class="gallary-header text-center">
+                <h2  class="packageText">
+                    special packages
+                </h2>
+              
+                
+            </div><!--/.gallery-header-->
+            <div class="packages-content">
+                <div class="row">
+
+                    <div id="packageBox" class="col-md-4 col-sm-6">
+                        <div class="single-package-item">
+                            <img class="packageImg" src="images/packages/p1.jpg" alt="package-place">
+                            <div class="single-package-item-txt">
+                                <h3 class="packageText">italy <span class="pull-right">$499</span></h3>
+                                <div class="packages-para">
+                                    <p class="packageText">
+                                        <span >
+                                            <i class="fa fa-angle-right"></i> 3 Days 2 nights
+                                        </span>
+                                        <i class="fa fa-angle-right" ></i>  5 star accomodation
+                                    </p>
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right" ></i>  transportation
+                                        </span>
+                                        <i class="fa fa-angle-right"></i> food facilities
+                                     </p>
+                                </div><!--/.packages-para-->
+                                <div class="packages-review">
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span >254 reviews</span>
+                                    </p>
+                                    
+                                </div><!--/.packages-review-->
+                                
+                            </div><!--/.single-package-item-txt-->
+                            
+                        </div><!--/.single-package-item-->
+
+                    </div><!--/.col-->
+
+                    <div id="packageBox" class="col-md-4 col-sm-6">
+                        <div class="single-package-item">
+                            <img class="packageImg" src="images/packages/p2.jpeg" alt="package-place">
+                            <div class="single-package-item-txt">
+                                <h3 class="packageText">england <span class="pull-right">$1499</span></h3>
+                                <div class="packages-para">
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i> 6 Days 7 nights
+                                        </span>
+                                        <i class="fa fa-angle-right"></i>  5 star accomodation
+                                    </p>
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  transportation
+                                        </span>
+                                        <i class="fa fa-angle-right" ></i>  Free food 
+                                     </p>
+                                </div><!--/.packages-para-->
+                                <div class="packages-review">
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span>344 reviews</span>
+                                    </p>
+                                </div><!--/.packages-review-->
+                              
+                            </div><!--/.single-package-item-txt-->
+                        </div><!--/.single-package-item-->
+
+                    </div><!--/.col-->
+                    
+                    <div  id="packageBox" class="col-md-4 col-sm-6">
+                        <div class="single-package-item">
+                            <img class="packageImg" src="images/packages/p3.jpg" alt="package-place">
+                            <div class="single-package-item-txt">
+                                <h3 class="packageText">france <span class="pull-right">$1199</span></h3>
+                                <div class="packages-para">
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right" ></i> 5 Days 6 nights
+                                        </span>
+                                        <i class="fa fa-angle-right" ></i>  5 star accomodation
+                                    </p>
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right" ></i>  transportation
+                                        </span>
+                                        <i class="fa fa-angle-right"></i>  food facilities
+                                     </p>
+                                </div><!--/.packages-para-->
+                                <div class="packages-review">
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span >544 reviews</span>
+                                    </p>
+                                </div><!--/.packages-review-->
+                               
+                            </div><!--/.single-package-item-txt-->
+                        </div><!--/.single-package-item-->
+
+                    </div><!--/.col-->
+                    
+                    <div id="packageBox" class="col-md-4 col-sm-6">
+                        <div class="single-package-item">
+                            <img class="packageImg" src="images/packages/p4.jpg" alt="package-place">
+                            <div class="single-package-item-txt">
+                                <h3 class="packageText">india <span class="pull-right">$799</span></h3>
+                                <div class="packages-para">
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right" ></i> 4 Days 5 nights
+                                        </span>
+                                        <i class="fa fa-angle-right" ></i>  5 star accomodation
+                                    </p>
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  transportation
+                                        </span>
+                                        <i class="fa fa-angle-right" ></i>  food facilities
+                                     </p>
+                                </div><!--/.packages-para-->
+                                <div class="packages-review">
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span >625 reviews</span>
+                                    </p>
+                                </div><!--/.packages-review-->
+                                
+                            </div><!--/.single-package-item-txt-->
+                        </div><!--/.single-package-item-->
+
+                    </div><!--/.col-->
+                    
+                    <div id="packageBox" class="col-md-4 col-sm-6">
+                        <div class="single-package-item">
+                            <img class="packageImg" src="images/packages/p5.webp" alt="package-place">
+                            <div class="single-package-item-txt">
+                                <h3 class="packageText">spain <span class="pull-right">$999</span></h3>
+                                <div class="packages-para">
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i> 4 Days 4 nights
+                                        </span>
+                                        <i class="fa fa-angle-right" ></i>  5 star accomodation
+                                    </p>
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right" ></i>  transportation
+                                        </span>
+                                        <i class="fa fa-angle-right" ></i>  food facilities
+                                     </p>
+                                </div><!--/.packages-para-->
+                                <div class="packages-review">
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span >379 reviews</span>
+                                    </p>
+                                </div><!--/.packages-review-->
+                              
+                            </div><!--/.single-package-item-txt-->
+                        </div><!--/.single-package-item-->
+
+                    </div><!--/.col-->
+                    
+                    <div id="packageBox" class="col-md-4 col-sm-6">
+                        <div class="single-package-item">
+                            <img class="packageImg" src="images/packages/p6.jpg" alt="package-place">
+                            <div class="single-package-item-txt">
+                                <h3 class="packageText">thailand <span class="pull-right">$799</span></h3>
+                                <div class="packages-para">
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right" ></i> 5 Days 6 nights
+                                        </span>
+                                        <i class="fa fa-angle-right" ></i>  5 star accomodation
+                                    </p>
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  transportation
+                                        </span>
+                                        <i class="fa fa-angle-right" ></i>  food facilities
+                                     </p>
+                                </div><!--/.packages-para-->
+                                <div class="packages-review">
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span >447 reviews</span>
+                                    </p>
+                                </div><!--/.packages-review-->
+                                
+                            </div><!--/.single-package-item-txt-->
+                        </div><!--/.single-package-item-->
+
+                    </div><!--/.col-->
+
+                </div><!--/.row-->
+            </div><!--/.packages-content-->
+        </div><!--/.container-->
+
+    </section>
+    <!--packages end-->
+
+    <!--special-offer start-->
+    <section id="spo" class="special-offer">
+        <div class="container">
+            <div class="offer-header text-center">
+                <h2 class="packageText">
+                    special offers
+                </h2>
+            </div><!--/.special-offer-header-->
+            <div class="special-offer-content">
+                <div class="row">
+                   
+                    <div class="col-sm-4">
+                        <div class="single-special-offer">
+                            
+                            <div class="single-special-offer-txt">
+                                <h2 class="packageText">France</h2>
+                                <div class="packages-review special-offer-review">
+                                    <img class="offerPic" src="images/offer/offer.png" alt="offer">
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span>2544 review</span>
+                                    </p>
+                                </div><!--/.packages-review-->
+                                <div class="packages-para special-offer-para">
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i> 5 Days 6 nights
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-angle-right"></i> 2 person
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  5 star accomodation
+                                        </span>
+                                    </p>
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  transportation
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  food facilities
+                                        </span>  
+                                    </p>
+                                </div><!--/.packages-para-->
+                                
+                            </div><!--/.single-special-offer-txt-->
+                            
+
+
+
+                            <h4 style="color: #7E1717 ;"><span>20%</span><br>off</h4>
+                            <p><span>$1600</span><br>reguler $ 2000</p>
+                            <button class="book">Book now</button>
+                        </div><!--/.single-special-offer-->
+
+                    </div><!--/.col-->
+
+
+                    <div class="col-sm-4">
+                        <div class="single-special-offer">
+                            
+                            <div class="single-special-offer-txt">
+                                <h2 class="packageText">Canada</h2>
+                                <div class="packages-review special-offer-review">
+                                    <img class="offerPic" src="images/offer/offer.png" alt="offer">
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span>2121 review</span>
+                                    </p>
+                                </div><!--/.packages-review-->
+                                <div class="packages-para special-offer-para">
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i> 5 Days 6 nights
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-angle-right"></i> 3 person
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  5 star accomodation
+                                        </span>
+                                    </p>
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  transportation
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  food facilities
+                                        </span>  
+                                    </p>
+                                </div><!--/.packages-para-->
+                                
+                            </div><!--/.single-special-offer-txt-->
+                            
+
+
+
+                            <h4 style="color: #7E1717 ;"><span>30%</span><br>off</h4>
+                            <p><span>$2500</span><br>reguler $ 1700</p>
+                            <button class="book">Book now</button>
+                        </div><!--/.single-special-offer-->
+                    </div><!--/.col-->
+
+                    <div class="col-sm-4">
+                        <div class="single-special-offer">
+                            
+                            <div class="single-special-offer-txt">
+
+                                
+                                <h2 class="packageText">Iran</h2>
+                                
+                                <div class="packages-review special-offer-review">
+
+                                    <img class="offerPic" src="images/offer/offer.png" alt="offer">
+                                    <p>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <span>3264 review</span>
+                                    </p>
+                                </div><!--/.packages-review-->
+                                <div class="packages-para special-offer-para">
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i> 5 Days 6 nights
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-angle-right"></i> 2 person
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  5 star accomodation
+                                        </span>
+                                    </p>
+                                    <p class="packageText">
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  transportation
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-angle-right"></i>  food facilities
+                                        </span>  
+                                    </p>
+                                </div><!--/.packages-para-->
+                                
+                            </div><!--/.single-special-offer-txt-->
+                            
+
+
+
+                            <h4 style="color: #7E1717 ;"><span>50%</span><br>off</h4>
+                            <p><span>$1600</span><br>reguler $ 800</p>
+                            <button class="book">Book now</button>
+                        </div><!--/.single-special-offer-->
+                    </div><!--/.col-->
+
+
+                </div><!--/.row-->
+            </div><!--/.special-offer-content-->
+        </div><!--/.container-->
+
+    </section><!--/.special-offer end-->
+    <!--special-offer end-->  
+    
+    <!-- faq -->
+    <section id="faq">
+
+        <h2 class="packageText" id="faqText">
+            Frequently Asked Questions
+        </h2> 
+
+        <div class="accordion w-100" id="basicAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#basicAccordionCollapseOne" aria-expanded="false" aria-controls="collapseOne">
+                How do I make a hotel reservation?
+              </button>
+            </h2>
+            <div id="basicAccordionCollapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+              <div class="accordion-body">
+                To make a hotel reservation, simply go to our website and enter your destination, travel dates, and number of guests. You will then be presented with a list of available hotels and rooms. Select the hotel and room that you want, and complete the booking process by entering your personal and payment information.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#basicAccordionCollapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                What types of payment do you accept?
+              </button>
+            </h2>
+            <div id="basicAccordionCollapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+              <div class="accordion-body">
+                We accept a variety of payment methods, including credit cards, debit cards, and PayPal. You can choose your preferred payment method during the booking process.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#basicAccordionCollapseThree" aria-expanded="false" aria-controls="collapseThree">
+                What if I miss my train or plane?
+              </button>
+            </h2>
+            <div id="basicAccordionCollapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+              <div class="accordion-body">
+                If you miss your train or plane, please contact us as soon as possible. Depending on the fare rules and availability, we may be able to help you rebook your transportation at an additional cost. However, please note that some tickets may be non-refundable or non-changeable.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    <script src="myScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>

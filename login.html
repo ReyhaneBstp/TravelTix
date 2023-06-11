@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body id="bd">
+    <div class="wrapper">
+        <div class="curved" id="curved1"></div>
+        <div class="curved" id="curved2"></div>
+        <div class="form-wrapper sign-in">
+            <form action="">
+                <h2>Sign in</h2>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label >username</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label >password</label>
+                </div>
+                <div class="forgot-pass">
+                    <a href="#">forgot password?</a>
+                </div>
+                <button id="signin" type="submit"> <a href="index.html">Sign in</a> </button>
+                <div class="sign-link">
+                    <p>Don't have an account?<a href="#" onclick="signup()"> Sign up</a></p>
+                </div>
+                <div class="social-platform">
+                    <p>or sign in with</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-google"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-wrapper sign-up">
+            <form action="">
+                <h2>Sign up</h2>
+                <div class="input-box">
+                    <input type="tel" required>
+                    <label >Phone number</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label >Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label >Password</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label >Confirm Password</label>
+                </div>
+                <button id="signup" type="submit">Sign up</button>
+                <div class="sign-link">
+                    <p>Already have an account?<a href="#" onclick="signin()"> Sign in</a></p>
+                </div>
+             
+            </form>
+        </div>
+    </div>
+
+    <div class="colors">
+        <span id="1" onclick="changeColor('#000000','1')" class="color" style="--clr:#000000;"></span>
+        <span id="2" onclick="changeColor('#643843','2')" class="color" style="--clr:#643843;"></span>
+        <span id="3" onclick="changeColor('#223245','3')" class="color" style="--clr:#223245;"></span>
+        <span id="4" onclick="changeColor('#4D0C02','4')" class="color" style="--clr:#4D0C02;"></span>
+        <span id="5" onclick="changeColor('#4c3d2c','5')" class="color" style="--clr:#4c3d2c;"></span>
+    </div>
+
+    
+</body>
+<script src="login.js"></script>
+</html>
