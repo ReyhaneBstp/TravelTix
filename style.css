@@ -23,8 +23,8 @@ body{
 }
 
 .tabContainer{
-    width: 90%;
-    margin-left: 5%;
+    width: 70%;
+    margin-left: 15%;
     margin-top: 21%;
     height: 250px;
     z-index: 1500;
@@ -349,8 +349,8 @@ body{
 }
 #login{
     transition: 0.20s;
-    font-size: 20px;
-    margin-top: 10px;  
+    font-size: 16px;
+    margin-top: 3px;  
     margin-right: 10px;
     height:50px ;
     display:list-item;
@@ -361,19 +361,18 @@ body{
     
     background-color: transparent;
     color:#fff;
-    padding:5px ;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding:10px ;
     border-radius: 10px;
-    margin-top: -2px;
     transition: 0.3s;
     border: 1px solid blueviolet;
     text-decoration: none;
 }
 
 #login:hover{
-    background-color: #fff;
-    color: blueviolet;
+    
+    border: 1px solid #fff;
+    border-bottom: 1px solid blueviolet;
+
     
 }
 .navbar-brand{
@@ -533,9 +532,28 @@ body{
 
 
 
-/* Style for screens smaller than 600px */
+/* Style for screens smaller */
 
-  @media only screen and (max-width: 940px) {
+
+@media only screen and (max-width: 1160px) {
+      
+    .personLbl {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+    }
+  
+    .btn {
+      font-size: 14px;
+      
+    }
+  
+    
+}
+
+@media only screen and (max-width: 940px) {
      
     
     .packageImg{
@@ -626,6 +644,9 @@ body{
  @media only screen and (max-width: 600px) {
           
 
+
+
+
     .colors{
         display: none;
     }
@@ -703,4 +724,5 @@ body{
     margin-bottom: 10%;
     padding: auto;
     }
+
 }
