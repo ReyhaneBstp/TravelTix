@@ -10,11 +10,14 @@ var flexspace = document.getElementsByClassName("container-fluid");
 var inputLbl = document.getElementsByClassName("inputLbl");
 var personLbl = document.getElementsByClassName("personLbl");
 var bg = document.getElementsByClassName("bg");
+var footer = document.getElementsByClassName("footer");
 var saveIndex=0;
 curved1 = document.getElementById('curved1');
 curved1.style.background = '#000000';
 flexspace=flexspace[0];
-flexspace.style.backgroundColor=curved1.style.backgroundColor; 
+footer = footer[0];
+flexspace.style.backgroundColor=curved1.style.backgroundColor;
+footer.style.backgroundColor=curved1.style.backgroundColor; 
 var book = document.getElementsByClassName("book");
 console.log("0");
 
@@ -102,6 +105,7 @@ function changeColor(color , clId){
     arrowBtn[0].style.backgroundColor=curved1.style.backgroundColor;
     arrowBtn[1].style.backgroundColor=curved1.style.backgroundColor;
     flexspace.style.backgroundColor=curved1.style.backgroundColor;
+    footer.style.backgroundColor=curved1.style.backgroundColor;
     for(let i =0 ; i<packageText.length ; i++)
     {
         packageText[i].style.color=curved1.style.backgroundColor;

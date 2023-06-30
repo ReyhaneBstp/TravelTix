@@ -308,4 +308,19 @@ button:hover{
     }
 }
 
+.input-box i{
+    font-size: 10px;
+    margin-left: 2px;
+}
+.fa-circle {
+    font-size: 10px;
+    margin-left: 2px;
+}
+  
+#x{
+    margin-left: 250px;
+    margin-top: 5px;
+    width: 100%;
+    position: absolute;
+}
 

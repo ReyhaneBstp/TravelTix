@@ -34,4 +34,70 @@ function changeColor(color , clId){
 
 }
 
+function checkPassword() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirm-password").value;
+  
+    if (password != confirmPassword) {
+        alert("Passwords do not match!");
+    }
+}
+
+var passwordInput = document.getElementById("password");
+var circleIcons = document.querySelectorAll(".input-box i");
+
+for (let i = 0; i < circleIcons.length; i++) {
+    circleIcons[i].style.color ="#fff";
+}
+
+function updateCircleIcons(strength) {
+    console.log(strength);
+
+    for (let i = 0; i < circleIcons.length; i++) {
+        circleIcons[i].style.color ="#fff";
+    }
+    for(let i =0 ; i<strength; i++)
+    {
+        if (strength === 1) {
+            circleIcons[i].style.color ="red";
+        } else if (strength === 2) {
+            circleIcons[i].style.color ="orange";
+        } else if (strength === 3) {
+            circleIcons[i].style.color ="lightgreen";
+        } else if (strength === 4) {
+            circleIcons[i].style.color ="green";
+        } else {
+            circleIcons[i].style.color ="darkgreen";
+        }
+    }
+}
+
+passwordInput.addEventListener("input", function() {
+    var password = passwordInput.value;
+    var strength = 0;
+    
+    if (password.length >= 8) {
+      strength++;
+    }
+    
+    if (/[A-Z]/.test(password)) {
+      strength++;
+    }
+    
+    if (/[a-z]/.test(password)) {
+      strength++;
+    }
+    
+    if (/\d/.test(password)) {
+      strength++;
+    }
+    
+    if (/\W/.test(password)) {
+      strength++;
+    }
+
+    updateCircleIcons(strength);
+  });
+ 
+
 
