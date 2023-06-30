@@ -1,4 +1,6 @@
 curved1 = document.getElementById('curved1');
+var toast_header = document.getElementsByClassName("toast-header");
+toast_header = toast_header[0];
 bd = document.getElementById('bd');
 btn1 = document.getElementById('signup');
 btn2 = document.getElementById('signin');
@@ -19,6 +21,11 @@ function changeColor(color , clId){
     curved1.style.background = color; 
     bd.style.background  = color;
     curved1.style.opacity = .8;
+    
+    toast_header.style.background = curved1.style.background;
+    toast_header.style.border = "1px solid #fff" ;
+    
+    
     for(let i=1 ; i<6 ; i++)
     {
         document.getElementById(i).style.transform = 'scale(1)';
@@ -34,13 +41,106 @@ function changeColor(color , clId){
 
 }
 
-function checkPassword() {
-    var password = document.getElementById("password").value;
+function check() {
     var confirmPassword = document.getElementById("confirm-password").value;
-  
-    if (password != confirmPassword) {
-        alert("Passwords do not match!");
+    var closeBtn = document.getElementsByClassName("close");
+    var password = document.getElementById("password").value;
+    closeBtn = closeBtn[0];
+    var inputs = document.querySelectorAll(".sign-up input");
+    var liveToast = document.getElementById("liveToast");
+    var titleToast = document.querySelector(".toast strong");
+    var toastText = document.querySelector(".toast .toast-body");
+    var telNumber = document.getElementById("telNumber");
+    var mailAddress = document.getElementById("mailAddress");
+    var phoneno = /^\d{10}$/;
+    var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    toast_header.style.background = curved1.style.background;
+    toast_header.style.border = "1px solid #fff" ;
+    
+    
+    if (!telNumber.value.match(phoneno)) {
+        
+        liveToast.style.display = "block";
+        titleToast.innerHTML="uncorrect value!";
+        toastText.innerHTML="Please enter a valid phone number!";
     }
+    
+    
+    if (!mailAddress.value.match(emailRegex)) {
+        liveToast.style.display = "block";
+        titleToast.innerHTML="uncorrect value!";
+        toastText.innerHTML="Please enter a valid mail address!";
+    }
+    
+    if (password !== confirmPassword) {
+        liveToast.style.display = "block";
+        titleToast.innerHTML="passwords dont match!";
+        toastText.innerHTML="Please enter the passwords again.";
+    }
+
+    for(let i =0 ; i<inputs.length ; i++){
+        if(inputs[i].value === ""){
+            liveToast.style.display = "block";
+            titleToast.innerHTML="here is an empty filed!";
+            toastText.innerHTML="Please fill all fields.";
+
+        }
+    }
+    closeBtn.addEventListener("click", function() {
+        setTimeout(function() {
+            liveToast.style.display = "none";
+        }, 150);
+        
+    });
+
+}
+
+function check2() {
+    var closeBtn = document.getElementsByClassName("close");
+    closeBtn = closeBtn[0];
+    var inputs = document.querySelectorAll(".input-box input");
+    var liveToast = document.getElementById("liveToast");
+    var titleToast = document.querySelector(".toast strong");
+    var toastText = document.querySelector(".toast .toast-body");
+    var telNumber = document.getElementById("telNumber");
+    var mailAddress = document.getElementById("mailAddress");
+    var phoneno = /^\d{10}$/;
+    var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    toast_header.style.background = curved1.style.background;
+    toast_header.style.border = "1px solid #fff" ;
+    
+    
+    if (!telNumber.value.match(phoneno)) {
+        
+        liveToast.style.display = "block";
+        titleToast.innerHTML="uncorrect value!";
+        toastText.innerHTML="Please enter a valid phone number!";
+    }
+    
+    
+    if (!mailAddress.value.match(emailRegex)) {
+        liveToast.style.display = "block";
+        titleToast.innerHTML="uncorrect value!";
+        toastText.innerHTML="Please enter a valid mail address!";
+    }
+    
+   
+
+    for(let i =0 ; i<inputs.length ; i++){
+        if(inputs[i].value === ""){
+            liveToast.style.display = "block";
+            titleToast.innerHTML="here is an empty filed!";
+            toastText.innerHTML="Please fill all fields.";
+
+        }
+    }
+    closeBtn.addEventListener("click", function() {
+        setTimeout(function() {
+            liveToast.style.display = "none";
+        }, 150);
+        
+    });
+
 }
 
 var passwordInput = document.getElementById("password");

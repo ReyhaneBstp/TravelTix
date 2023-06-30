@@ -11,6 +11,9 @@ var inputLbl = document.getElementsByClassName("inputLbl");
 var personLbl = document.getElementsByClassName("personLbl");
 var bg = document.getElementsByClassName("bg");
 var footer = document.getElementsByClassName("footer");
+var toast_header = document.getElementsByClassName("toast-header");
+toast_header = toast_header[0];
+
 var saveIndex=0;
 curved1 = document.getElementById('curved1');
 curved1.style.background = '#000000';
@@ -106,6 +109,9 @@ function changeColor(color , clId){
     arrowBtn[1].style.backgroundColor=curved1.style.backgroundColor;
     flexspace.style.backgroundColor=curved1.style.backgroundColor;
     footer.style.backgroundColor=curved1.style.backgroundColor;
+    toast_header.style.background = curved1.style.background;
+    toast_header.style.border = "1px solid #fff" ;
+
     for(let i =0 ; i<packageText.length ; i++)
     {
         packageText[i].style.color=curved1.style.backgroundColor;
@@ -162,12 +168,37 @@ function minusNumber(index){
 
 }
 
+
 function showResult(numb){
+
+    var liveToast = document.getElementById("liveToast");
+    var titleToast = document.querySelector(".toast strong");
+    var toastText = document.querySelector(".toast .toast-body");
+    var inputs = document.querySelectorAll(".input-box input");
+    var closeBtn = document.getElementsByClassName("close");
+    toast_header.style.background = curved1.style.background;
+    toast_header.style.border = "1px solid #fff" ;
+    closeBtn = closeBtn[0];
+
     document.getElementById("table1").style.display="none";
     document.getElementById("table2").style.display="none";
     document.getElementById("table3").style.display="none";
     document.getElementById("table"+numb).style.display="inline-table";
 
+
+    for(let i =0 ; i<inputs.length ; i++){
+        if(inputs[i].value === ""){
+            liveToast.style.display = "block";
+            titleToast.innerHTML="here is an empty filed!";
+            toastText.innerHTML="Please fill all fields.";
+        }
+    }
+    closeBtn.addEventListener("click", function() {
+        setTimeout(function() {
+            liveToast.style.display = "none";
+        }, 150);
+        
+    });
 }
 
 
