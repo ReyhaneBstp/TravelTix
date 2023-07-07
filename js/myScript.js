@@ -104,15 +104,15 @@ function showPanel(panelIndex) {
 
     if(panelIndex == 0)
     {
-        bg[0].style.backgroundImage = "url(background/6.jpeg)";
+        bg[0].style.backgroundImage = "url(/background/6.jpeg)";
     }
     if(panelIndex == 1)
     {
-        bg[0].style.backgroundImage = "url(background/4.jpg)";
+        bg[0].style.backgroundImage = "url(/background/4.jpg)";
     }
     if(panelIndex == 2)
     {
-        bg[0].style.backgroundImage = "url(background/5.jpeg)";
+        bg[0].style.backgroundImage = "url(/background/5.jpeg)";
     }
     
 
