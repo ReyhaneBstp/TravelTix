@@ -204,14 +204,26 @@ body{
    box-shadow: 0px 1px 3px 3px rgba(0,0,0,.2);
 }
 
+.input-box input:not(:placeholder-shown) ~ .inputLbl {
+    top: -30%;
+ 
+}
+  
+.input-box input:not(:placeholder-shown):valid ~ .inputLbl {
+    top: -30%;
+   
+  }
+.input-box input::placeholder {
+    color: transparent;
+}
 
-
-.input-box input:focus~.inputLbl
+/* .input-box input:focus~.inputLbl
 {
     top: -30%;
 } 
-/* #des:valid~label {
+.input-box input:valid~.inputLbl {
     top: -20%;
+    background-color: #4180CB;
 } */
 #numBox{
     pointer-events: none;
@@ -356,13 +368,14 @@ body{
     padding:10px ;
     border-radius: 10px;
     transition: 0.5s;
-    border: 1px solid blueviolet;
+    border: 1px solid #fff;
+    border-bottom: 1px solid blueviolet;
     text-decoration: none;
 }
 
 #login:hover{  
-    border: 1px solid #fff;
-    border-bottom: 1px solid blueviolet;
+    border: 1px solid blueviolet;
+    border-bottom: 1px solid #fff;
 }
 .navbar-brand{
     color: #fff;
@@ -521,25 +534,11 @@ body{
     
 }
 
-.footer{
-    background: #152F4F;
-    margin-top: 150px;
-    color:white;
+.footer {
+    opacity: 0.8;
+    color: #fff;
 
-    .about-company{
-      i{font-size: 25px;}
-      a{
-        color:white;
-        transition: color .2s;
-        &:hover{color:#4180CB}
-      }
-    } 
-    .location{
-      i{font-size: 18px;}
-    }
-    .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
-  }
-
+}
 
 .footer a{
     text-decoration: none;
@@ -572,6 +571,17 @@ body{
 
 @media only screen and (max-width: 990px) {
      
+
+    .navbar-collapse{
+        width: 100%;
+        height: 100%;
+    }
+
+    .navbar{
+        width: 100%;
+        height: 100%;
+    }
+
     .packageImg{
         width: 99%;
     }
@@ -680,9 +690,7 @@ body{
         height: 100%;
     }
     
-    #login{
-        display: none;
-    }
+  
  
 
 
@@ -770,9 +778,263 @@ body{
     }
 
 }
+
+.input-box i{
+    font-size: 10px;
+    margin-left: 2px;
+}
+.fa-circle {
+    font-size: 10px;
+    margin-left: 2px;
+}
+  
+#x{
+    margin-left: 250px;
+    margin-top: 5px;
+    width: 100%;
+    position: absolute;
+}
 .close{
     font-size: 10px;
     width: 30px;
     height: 30px;
     border-radius: 15px;
+}
+
+
+#myAcc{
+
+    margin-top: -20%;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppies", sans-serif;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: 1.5s;
+    
+    
+}
+
+
+.wrapper{
+    width: 400px;
+    height: 600px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0px 1px 3px 3px rgba(0,0,0,.2);
+    position: absolute;
+    top:55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.editInfo{
+    width: 400px;
+    height: 650px;
+}
+
+
+.form-wrapper{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    
+}
+
+
+#signin a{
+    text-decoration: none;
+    color: #fff;
+
+}
+
+
+.form-wrapper h2{
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+.sign-up .input-box , .sign-in .input-box , .edit .input-box{
+    position: relative;
+    width: 320px;
+    margin:  30px 0;
+    border-bottom: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px 3px rgba(0,0,0,.2);
+   
+}
+.sign-up .input-box label , .sign-in .input-box label , .edit .input-box label{
+    position: absolute;
+    left: 5px;
+    top:50%;
+    transform: translateY(-50%);
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+.sign-up .input-box input , .sign-in .input-box input .sign-up .input-box input , .edit .input-box input{
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 5px;
+    font-size: 16px;
+    color: #fff;
+}
+.sign-up .input-box input:focus~label,
+.sign-up .input-box input:valid~label,
+.sign-in .input-box input:focus~label,
+.sign-in .input-box input:valid~label,
+.edit.input-box input:focus~label,
+.edit .input-box input:valid~label
+{
+    top: -10px;
+}
+.forgot-pass{
+    margin: -15px 0 15px 5px;
+}
+.forgot-pass a{
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: .1s;
+}
+.forgot-pass a:hover{
+    text-decoration: underline;
+    font-weight: 600;
+}
+#signin , #signup , #editBtn{
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    color:#fff;
+    opacity: 1;
+    font-weight: 500;
+    transition: .5s;
+    box-shadow: 0px 1px 3px 3px rgba(0,0,0,.2);
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-radius: 15px;
+    background-color: #000000;
+}
+#signin:hover , #signup:hover , #editBtn:hover{
+    border: 2px solid;
+    opacity: 0.9;
+    border-radius: 15px;
+    border: 2px solid #fff;
+    font-size: 18px;
+   
+}
+
+.sign-link{
+    font-size: 14px;
+    text-align: center;
+    margin: 15px 0;
+}
+.sign-link p{ 
+    color: #000000;
+
+}
+.sign-link p a{ 
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+}
+.sign-link p a:hover{ 
+    text-decoration: underline;
+    font-weight: 600;
+}
+.social-platform{
+    font-size: 14px;
+    color:#fff;
+    text-align: center;
+}
+.social-icons a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin: 15px 5px;
+    text-align: center;
+    transition: .5s;
+
+}
+.social-icons a:hover{
+    background: #fff;
+}
+.social-icons a i{
+    color: #fff;
+    font-size: 14px;
+    padding-top: 30%;
+    transition: .5s;
+}
+.social-icons a:hover i{
+    color: #444;
+}
+
+.wrapper #curved1 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 110%;
+    height: 100%;
+    z-index: -2;
+    clip-path: circle(110% at 0 0);
+    
+}
+.wrapper #curved2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 110%;
+    z-index: -2;
+    clip-path: circle(82% at 0 0);
+    
+}
+
+
+
+@media only screen and (max-width: 800px) {
+
+.input-box i{
+    font-size: 10px;
+    margin-left: 2px;
+}
+.fa-circle {
+    font-size: 10px;
+    margin-left: 2px;
+}
+  
+#x{
+    margin-left: 250px;
+    margin-top: 5px;
+    width: 100%;
+    position: absolute;
+}
+.close{
+    font-size: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
 }

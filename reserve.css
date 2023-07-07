@@ -39,7 +39,7 @@
 }
 
 .container form .row .col .title{
-  font-size: 20px;
+  font-size: 18px;
   color:#333;
   padding-bottom: 5px;
   text-transform: uppercase;
@@ -92,14 +92,16 @@
   width: 100%;
   padding:12px;
   font-size: 17px;
-  background: #000;
-  color:#fff;
+  background: #ccc;
+  
+  color:#333;
   margin-top: 5px;
   cursor: pointer;
 }
 
 .container form .submit-btn:hover{
-  background: #2ecc71;
+  background: #333;
+  color: #ccc;
 }
 
 .inputBox img{
@@ -111,14 +113,14 @@
 }
 .minus-button,.plus-button{
   border: none;
-  border-radius: 5px;
-  width: 22px;
-  padding: 5px;
-  background-color: #000000;
+  border-radius: 15px;
+  width: 20px;
+  padding: 1px;
+  background-color: #ccc;
   display: inline-block;
   cursor: pointer;
-  color: #fff;
-  font-weight: 500;
+  color: #333;
+  font-weight: 300;
   box-shadow: 0px 1px 1px 1px rgba(0,0,0,.2);
   
 }

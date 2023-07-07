@@ -30,10 +30,11 @@
         </div>
     </div>
     
+    
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <a href="#" class="navbar-brand">
-
+                
                 <div id="brandBox">
                     <img src="icon/travel.png" alt="Brand logo" id="brand">
                     <span id="brandTxt">ravelTix</span>
@@ -46,19 +47,31 @@
                 <div class="navbar-nav">
                     <a href="#" class="nav-item nav-link active">Home</a>
                     <a href="#pack" class="nav-item nav-link">Tours</a>
-                    <a href="#spo" class="nav-item nav-link">Offers</a>
                     <a href="#faq" class="nav-item nav-link">FAQ</a>
+                    <a href="#spo" class="nav-item nav-link">Offers</a>
                     <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
                 </div>
                 <div class="navbar-nav ms-auto">
-                    <a id="login"  href="login.html" target="_blank">My Account</a>
+                    <button id="login" onclick="goMyAcc()">My Account</button>
                 </div>
             </div>
         </div>
     </nav>
 
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+            <!-- <img src="..." class="rounded me-2" alt="..."> -->
+            <strong class="me-auto" style="color: #fff;"></strong>
+            <button type="button" class="close" data-bs-dismiss="toast" aria-label="Close" style="color: #000000; border: 1px solid #fff;">X</button>
+            </div>
+            <div class="toast-body" style="background-color: #fff; color: #000000;">
+            </div>
+        </div>
+    </div>
+    
+    <div id="main">
 
-    <h1 class="title"></h1>
     <div class="tabContainer">
         <div class="buttonContainer">
             <button id="btn1" onclick="showPanel(0)"><i class="fa-solid fa-hotel"></i> Hotel</button><button onclick="showPanel(1)"><i class="fa-solid fa-plane"></i> Flight</button><button onclick="showPanel(2)"><i class="fa-solid fa-train"></i> Train</button>
@@ -72,19 +85,19 @@
             <form class="hotelForm">
                 
                 <div class="input-box">
-                    <input type="text" id="des">
+                    <input type="text" id="des" placeholder="destination">
                     <label class="inputLbl">Destination</label>
                 </div>
-                <div class="input-box">
-                    <input id="entry" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                <div class="input-box" >
+                    <input id="entry" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="entry">
                     <label class="inputLbl">Entry date</label>
                 </div>
                 <div class="input-box">
-                    <input id="exit" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <input id="exit" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="exit">
                     <label class="inputLbl">Exit date</label>
                 </div>
                 <div class="input-box">
-                    <input id="numBox" type="text"></input>
+                    <input id="numBox" type="text" ></input>
                     <div class="personLbl">
                         <button type="button" class="btn" id="minus" onclick="minusNumber(0)">-</button>
                         <span class="personNum"><input id="number" value="1" type="number" ><span>person</span></span>
@@ -103,16 +116,16 @@
             <form class="plainForm">
 
                 <div class="input-box" id="orgDes">
-                    <input type="text" id="org">
+                    <input type="text" id="org" placeholder="org" class="org">
                     <label class="inputLbl">Origin</label>
-                </div><button type="button" class="arrowBtn"><i class="fa-solid fa-arrows-left-right"></i></button><div class="input-box" id="orgDes">
-                    <input type="text" id="des">
+                </div><button type="button" class="arrowBtn" onclick="reverse(0)"><i class="fa-solid fa-arrows-left-right"></i></button><div class="input-box" id="orgDes">
+                    <input type="text" id="des" placeholder="des" class="des">
                     <label class="inputLbl">Destination</label>
                 </div><div class="input-box">
-                    <input id="entry" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <input id="entry" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="entry">
                     <label class="inputLbl">Entry date</label>
                 </div><div class="input-box">
-                    <input id="exit" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <input id="exit" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="exit">
                     <label class="inputLbl">Exit date</label>
                 </div><div class="input-box">
                     <input id="numBox" type="text">
@@ -133,16 +146,16 @@
             <form class="trainForm">
 
                 <div class="input-box"  id="orgDes">
-                    <input type="text" id="org">
+                    <input type="text" id="org" placeholder="org" class="org">
                     <label class="inputLbl">origin</label>
-                </div><button type="button" class="arrowBtn"><i class="fa-solid fa-arrows-left-right"></i></button><div class="input-box"  id="orgDes">
-                    <input type="text" id="des">
+                </div><button type="button" class="arrowBtn" onclick="reverse(1)"><i class="fa-solid fa-arrows-left-right"></i></button><div class="input-box"  id="orgDes">
+                    <input type="text" id="des" placeholder="des" class="des">
                     <label class="inputLbl">Destination</label>
                 </div><div class="input-box">
-                    <input id="entry" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <input id="entry" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="entry">
                     <label class="inputLbl">Entry date</label>
                 </div><div class="input-box">
-                    <input id="exit" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <input id="exit" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="exit">
                     <label class="inputLbl">Exit date</label>
                 </div><div class="input-box">
                     <input id="numBox" type="text">
@@ -162,17 +175,6 @@
 
     </div>
 
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-            <!-- <img src="..." class="rounded me-2" alt="..."> -->
-            <strong class="me-auto" style="color: #fff;"></strong>
-            <button type="button" class="close" data-bs-dismiss="toast" aria-label="Close" style="color: #000000; border: 1px solid #fff;">X</button>
-            </div>
-            <div class="toast-body" style="background-color: #fff; color: #000000;">
-            </div>
-        </div>
-    </div>
 
     <section class="resTable">
         <!--Table-->
@@ -779,6 +781,11 @@
       <div class="mt-5 pt-5 pb-5 footer">
         <div class="container">
           <div class="row">
+              <div class="col-lg-5 col-xs-12 about-company">
+                <h3>TravelTix</h3>
+                <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
+                
+              </div>
               <div class="col-lg-3 col-xs-12 links">
                   <h4 class="mt-lg-0 mt-sm-3">Quick access</h4>
                   <ul class="m-0 p-0">
@@ -788,24 +795,118 @@
                       <li>- <a href="#">FAQ</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-5 col-xs-12 about-company">
-                  <h1>TravelTix</h1>
-                  <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
-                  <p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i class="fa fa-linkedin-square"></i></a></p>
-                </div>
                 <div class="col-lg-4 col-xs-12 location">
-              <h4 class="mt-lg-0 mt-sm-4">Contact Us</h4>
-              <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
-              <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
-              <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+                    <h4 class="mt-lg-0 mt-sm-4">Contact Us</h4>
+                    <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
+                    <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
+                    <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+                </div>
             </div>
-          </div>
           <div class="row mt-5">
             <div class="col copyright">
-              <p class=""><small class="text-white-50">© 2019. All Rights Reserved.</small></p>
+              <p class=""><small class="text-white-50">© 2023. All Rights Reserved.</small></p>
             </div>
           </div>
         </div>
+    </div>
+    </div>
+    <div id="myAcc">
+
+        <div class="wrapper">
+            <div class="curved" id="curved1"></div>
+            <div class="curved" id="curved2"></div>
+            <div class="form-wrapper sign-in">
+                <form action="">
+                    <h2 >Sign in</h2>
+                    <div class="input-box">
+                        <input type="text" required>
+                        <label >username</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" required>
+                        <label >password</label>
+                    </div>
+                    <div class="forgot-pass">
+                        <a href="#">forgot password?</a>
+                    </div>
+                    <button id="signin" type="button" onclick="check()"> <a href="index.html">Sign in</a> </button>
+                    <div class="sign-link">
+                        <p>Don't have an account?<a href="#" onclick="signup()"> Sign up</a></p>
+                    </div>
+                    <div class="social-platform">
+                        <p>or sign in with</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-google"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+            <div class="form-wrapper sign-up">
+                <form action="">
+                    <h2 >Sign up</h2>
+                    <div class="input-box">
+                        <input id="telNumber" type="tel" required>
+                        <label >Phone number</label>
+                    </div>
+                    <div class="input-box">
+                        <input id="mailAddress" type="text" required>
+                        <label >Email</label>
+                    </div>
+                    <div class="input-box">
+                        <input id="password" type="password" required>
+                        <label>Password </label>
+                        <div id="x"><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i></div>
+                    </div>
+                    <div class="input-box">
+                        <input id="confirm-password" type="password" required>
+                        <label >Confirm Password</label>
+                    </div>
+                    <button id="signup" type="button" onclick="check()">Sign up</button>
+                    <div class="sign-link">
+                        <p>Already have an account?<a href="#" onclick="signin()"> Sign in</a></p>
+                    </div>
+                 
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="wrapper editInfo">
+
+        <div class="curved" id="curved1"></div>
+        <div class="curved" id="curved2"></div>
+    
+        <div class="form-wrapper edit">
+            <form action="">
+                <h2 >Edit information</h2>
+                <div class="input-box">
+                    <input id="telNumber" type="tel" required>
+                    <label >Phone number</label>
+                </div>
+                <div class="input-box">
+                    <input  id="mailAddress" type="text" required>
+                    <label >Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label >Full name</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label >Address</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" required  onfocus="(this.type='date')" onblur="(this.type='text')">
+                    <label >Birth</label>
+                </div>
+                <button id="editBtn" type="button" onclick="check2()">Edit info</button>
+             
+            </form>
         </div>
 
 
