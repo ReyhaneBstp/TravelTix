@@ -197,31 +197,31 @@
                 <th scope="row">1</th>
                 <td>Lake Place</td>
                 <td>100$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Holly House</td>
                 <td>110$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td>Time Motel</td>
                 <td>90$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
             <tr>
                 <th scope="row">4</th>
                 <td>Four Seasons</td>
                 <td>130$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
             <tr>
                 <th scope="row">5</th>
                 <td>Sunset Lodge</td>
                 <td>95$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
             
             </tbody>
@@ -253,21 +253,21 @@
                 <td>Homa</td>
                 <td>12:20</td>
                 <td>100$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
             <tr>
                 <th scope="row">122</th>
                 <td>Kish Air</td>
                 <td>15:50</td>
                 <td>100$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
             <tr>
                 <th scope="row">303</th>
                 <td>Sky Air</td>
                 <td>20:20</td>
                 <td>90$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
            
             
@@ -297,21 +297,21 @@
                 <td>Amtrack</td>
                 <td>12:20</td>
                 <td>100$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
             <tr>
                 <th scope="row">2 beds</th>
                 <td>ScotRail</td>
                 <td>15:50</td>
                 <td>100$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
             <tr>
                 <th scope="row">6 beds</th>
                 <td>Saba</td>
                 <td>20:20</td>
                 <td>90$</td>
-                <td><a href="reserve.html" target="_blank">Reserve</a></td>
+                <td><a href="/html/reserve.html" target="_blank">Reserve</a></td>
             </tr>
            
             
@@ -659,7 +659,7 @@
 
                             <h4 style="color: #7E1717 ;"><span>20%</span><br>off</h4>
                             <p><span>$1600</span><br>reguler $ 2000</p>
-                            <button class="book">Book now</button>
+                            <button class="book"><a href="/html/reserve.html" target="_blank">Book now</a></button>
                         </div><!--/.single-special-offer-->
 
                     </div><!--/.col-->
@@ -710,7 +710,7 @@
 
                             <h4 style="color: #7E1717 ;"><span>30%</span><br>off</h4>
                             <p><span>$2500</span><br>reguler $ 1700</p>
-                            <button class="book">Book now</button>
+                            <button class="book"><a href="/html/reserve.html" target="_blank">Book now</a></button>
                         </div><!--/.single-special-offer-->
                     </div><!--/.col-->
 
@@ -763,7 +763,7 @@
 
                             <h4 style="color: #7E1717 ;"><span>50%</span><br>off</h4>
                             <p><span>$1600</span><br>reguler $ 800</p>
-                            <button class="book">Book now</button>
+                            <button class="book"><a href="/html/reserve.html" target="_blank">Book now</a></button>
                         </div><!--/.single-special-offer-->
                     </div><!--/.col-->
 
@@ -790,9 +790,9 @@
                   <h4 class="mt-lg-0 mt-sm-3">Quick access</h4>
                   <ul class="m-0 p-0">
                       <li>- <a href="#">Home</a></li>
-                      <li>- <a href="#">Tours</a></li>
-                      <li>- <a href="#">Offers</a></li>
-                      <li>- <a href="#">FAQ</a></li>
+                      <li>- <a href="#pack">Tours</a></li>
+                      <li>- <a href="#spo">Offers</a></li>
+                      <li>- <a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-xs-12 location">
@@ -829,7 +829,7 @@
                     <div class="forgot-pass">
                         <a href="#">forgot password?</a>
                     </div>
-                    <button id="signin" type="button" onclick="check()"> <a href="index.html">Sign in</a> </button>
+                    <button id="signin" type="button" onclick="check(2)"> <a >Sign in</a> </button>
                     <div class="sign-link">
                         <p>Don't have an account?<a href="#" onclick="signup()"> Sign up</a></p>
                     </div>
@@ -848,11 +848,11 @@
                 <form action="">
                     <h2 >Sign up</h2>
                     <div class="input-box">
-                        <input id="telNumber" type="tel" required>
+                        <input class="telNumber" type="tel" required>
                         <label >Phone number</label>
                     </div>
                     <div class="input-box">
-                        <input id="mailAddress" type="text" required>
+                        <input class="mailAddress" type="text" required>
                         <label >Email</label>
                     </div>
                     <div class="input-box">
@@ -864,7 +864,7 @@
                         <input id="confirm-password" type="password" required>
                         <label >Confirm Password</label>
                     </div>
-                    <button id="signup" type="button" onclick="check()">Sign up</button>
+                    <button id="signup" type="button" onclick="check(4)">Sign up</button>
                     <div class="sign-link">
                         <p>Already have an account?<a href="#" onclick="signin()"> Sign in</a></p>
                     </div>
@@ -885,11 +885,11 @@
             <form action="">
                 <h2 >Edit information</h2>
                 <div class="input-box">
-                    <input id="telNumber" type="tel" required>
+                    <input class="telNumber" type="tel" required>
                     <label >Phone number</label>
                 </div>
                 <div class="input-box">
-                    <input  id="mailAddress" type="text" required>
+                    <input  class="mailAddress" type="text" required>
                     <label >Email</label>
                 </div>
                 <div class="input-box">

@@ -256,8 +256,8 @@ function reverse(index){
     org[index].value = des[index].value;
     des[index].value = temp;
 }
-
 can_edit = 1;
+
 function goMyAcc(){
     if(can_edit ==0 ){
         main.style.display="none";
@@ -335,15 +335,30 @@ function signin(){
 }
 
 
-function check() {
+function check(inputNum) {
+
+
+    if(inputNum == 2)
+    {
+        var inputs = document.querySelectorAll(".sign-in input");
+
+    }
+    if(inputNum == 4)
+    {
+        var inputs = document.querySelectorAll(".sign-up input");
+
+    }
+
     var confirmPassword = document.getElementById("confirm-password").value;
     var password = document.getElementById("password").value;
-    var inputs = document.querySelectorAll(".sign-up input");
-    var telNumber = document.getElementById("telNumber");
-    var mailAddress = document.getElementById("mailAddress");
+    var telNumber = document.getElementsByClassName("telNumber");
+    telNumber = telNumber[0];
+    var mailAddress = document.getElementsByClassName("mailAddress");
+    mailAddress = mailAddress[0];
     var phoneno = /^\d{10}$/;
     var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    toast_header.style.background = curved.style.background;
+    toast_header.style.background = curved[0].style.background;
+    
     toast_header.style.border = "1px solid #fff" ;
     
     
@@ -366,9 +381,12 @@ function check() {
         titleToast.innerHTML="passwords dont match!";
         toastText.innerHTML="Please enter the passwords again.";
     }
+
     
-    for(let i =0 ; i<inputs.length ; i++){
+    
+    for(let i =0 ; i<inputNum ; i++){
         if(inputs[i].value === ""){
+            console.log(i);
             liveToast.style.display = "block";
             titleToast.innerHTML="here is an empty filed!";
             toastText.innerHTML="Please fill all fields.";
@@ -385,9 +403,11 @@ function check() {
 }
 
 function check2() {
-    var inputs = document.querySelectorAll(".input-box input");
-    var telNumber = document.getElementById("telNumber");
-    var mailAddress = document.getElementById("mailAddress");
+    var inputs = document.querySelectorAll(".edit input");
+    var telNumber = document.getElementsByClassName("telNumber");
+    telNumber = telNumber[1];
+    var mailAddress = document.getElementsByClassName("mailAddress");
+    mailAddress = mailAddress[1];
     var phoneno = /^\d{10}$/;
     var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     toast_header.style.background = curved1.style.background;
@@ -403,6 +423,7 @@ function check2() {
     
     
     if (!mailAddress.value.match(emailRegex)) {
+        console.log(mailAddress.value);
         liveToast.style.display = "block";
         titleToast.innerHTML="uncorrect value!";
         toastText.innerHTML="Please enter a valid mail address!";
