@@ -256,7 +256,7 @@ function reverse(index){
     org[index].value = des[index].value;
     des[index].value = temp;
 }
-can_edit = 1;
+
 
 function goMyAcc(){
     if(can_edit ==0 ){
@@ -386,7 +386,7 @@ function check(inputNum) {
     
     for(let i =0 ; i<inputNum ; i++){
         if(inputs[i].value === ""){
-            console.log(i);
+         
             liveToast.style.display = "block";
             titleToast.innerHTML="here is an empty filed!";
             toastText.innerHTML="Please fill all fields.";
@@ -423,7 +423,7 @@ function check2() {
     
     
     if (!mailAddress.value.match(emailRegex)) {
-        console.log(mailAddress.value);
+      
         liveToast.style.display = "block";
         titleToast.innerHTML="uncorrect value!";
         toastText.innerHTML="Please enter a valid mail address!";
@@ -505,5 +505,27 @@ passwordInput.addEventListener("input", function() {
   });
  
 
+  const links = document.querySelectorAll('.navbar-nav a');
+  links.forEach(link => {
+      link.addEventListener('click', () => {
+          setTimeout(() => {
+              const navbarCollapse = document.getElementById('navbarCollapse');
+              if (navbarCollapse.classList.contains('show')) {
+                  navbarCollapse.classList.remove('show');
+              }
+          }, 200);
+      });
+  });
+  function showColors() {
+    document.getElementById("colors").style.display = "flex";
+    document.getElementById("colors-arrow").classList.add("active");
+  }
 
-
+  function hideColors() {
+    setTimeout(function () {
+      if (!document.getElementById("colors").matches(":hover") && !document.getElementById("colors-arrow").matches(":hover")) {
+        document.getElementById("colors").style.display = "none";
+        document.getElementById("colors-arrow").classList.remove("active");
+      }
+    }, 500);
+  }
